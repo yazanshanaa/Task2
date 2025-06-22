@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Todo Manager Task</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="wrapper">
+
+    <!-- ===== Todo Input ===== -->
+    <section class="card">
+      <h2>TodInput</h2>
+
+      <div class="input-box">
+        <span class="icon">📝</span>
+        <input id="todoInput" type="text" placeholder="New Todo" maxlength="100" />
+      </div>
+
+      <button id="addBtn" class="btn primary full">Add new task</button>
+    </section>
+
+    <!-- ===== Filter Tabs ===== -->
+    <nav class="tabs">
+      <button data-filter="all"  class="tab active">All</button>
+      <button data-filter="done" class="tab">Done</button>
+      <button data-filter="todo" class="tab">Todo</button>
+    </nav>
+
+    <!-- ===== Todo List ===== -->
+    <h2>Todo List</h2>
+    <ul id="todoList" class="list"></ul>
+
+    <!-- ===== Bottom Actions ===== -->
+    <div class="actions">
+      <button id="delDoneBtn" class="btn danger">Delete Done Tasks</button>
+      <button id="delAllBtn"  class="btn danger">Delete All Tasks</button>
+    </div>
+  </main>
+
+  <!-- ===== Overlay & Custom Modals ===== -->
+  <div id="overlay" class="modal-overlay"></div>
+
+  <!-- Rename Modal -->
+  <div id="renameBox" class="modal-box">
+    <h3>Rename Task</h3>
+    <input id="renameField" type="text" maxlength="100" />
+    <div class="btn-area">
+      <button id="saveRename"   class="btn primary">Save</button>
+      <button id="cancelRename" class="btn danger">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div id="confirmBox" class="modal-box">
+    <h3>Delete Task</h3>
+    <p id="confirmText">Are you sure you want to delete this task?</p>
+    <div class="btn-area">
+      <button id="confirmOk"     class="btn grey">Confirm</button>
+      <button id="confirmCancel" class="btn danger">Cancel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
