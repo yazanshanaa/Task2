@@ -50,4 +50,28 @@ h2{text-align:center;
   border:none;
   font-size:1rem;
   outline:none;
+} 
+/* ---------- Generic Buttons ---------- */
+.btn{padding:.6rem 1.2rem;
+  border:none;
+  border-radius:4px;
+  color:#fff;
+  font-size:.95rem;cursor:pointer;
+}
+.btn.primary
+{
+  background:var(--teal);
+}
+
+.btn.primary:hover{background:var(--teal-dark);
+}
+
+.btn.danger{background:var(--danger);
+}
+.btn.grey{background:var(--grey);
+}
+.btn.full{width:100%;
+}
+.btn:disabled{opacity:.5;
+  cursor:not-allowed;
 }
