@@ -10,137 +10,41 @@
 }
 
 /* ---------- Layout ---------- */
-body{margin:0;
-  background:var(--light);
-  display:flex;
-  justify-content:center;
-  padding:1.5rem;
-}
-
-.wrapper{max-width:900px;
-  width:100%;
-}
-
-h2{text-align:center;
-  margin-top:.5rem;
-  color:var(--teal-dark)
-  ;
-}
-
+body{margin:0;background:var(--light);display:flex;justify-content:center;padding:1.5rem;}
+.wrapper{max-width:900px;width:100%;}
+h2{text-align:center;margin-top:.5rem;color:var(--teal-dark);}
 
 /* ---------- Card & Input ---------- */
-.card{border:1px solid var(--border);
-  padding:1rem;
-  border-radius:4px;
-  background:#fff;}
-.input-box{display:flex;
-  align-items:center;
-  border:1px solid var(--teal);
-  border-radius:4px;
-  padding:.4rem .6rem;
-  margin-bottom:.8rem;
-}
+.card{border:1px solid var(--border);padding:1rem;border-radius:4px;background:#fff;}
+.input-box{display:flex;align-items:center;border:1px solid var(--teal);border-radius:4px;padding:.4rem .6rem;margin-bottom:.8rem;}
+.input-box .icon{margin-right:.4rem;font-size:1.2rem;color:var(--teal);}
+.input-box input{flex:1;border:none;font-size:1rem;outline:none;}
 
-.input-box .icon{margin-right:.4rem;
-  font-size:1.2rem;
-  color:var(--teal);
-}
-
-.input-box input{flex:1;
-  border:none;
-  font-size:1rem;
-  outline:none;
-} 
 /* ---------- Generic Buttons ---------- */
-.btn{padding:.6rem 1.2rem;
-  border:none;
-  border-radius:4px;
-  color:#fff;
-  font-size:.95rem;cursor:pointer;
-}
-.btn.primary
-{
-  background:var(--teal);
-}
+.btn{padding:.6rem 1.2rem;border:none;border-radius:4px;color:#fff;font-size:.95rem;cursor:pointer;}
+.btn.primary{background:var(--teal);}
+.btn.primary:hover{background:var(--teal-dark);}
+.btn.danger{background:var(--danger);}
+.btn.grey{background:var(--grey);}
+.btn.full{width:100%;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
 
-.btn.primary:hover{background:var(--teal-dark);
-}
-
-.btn.danger{background:var(--danger);
-}
-.btn.grey{background:var(--grey);
-}
-.btn.full{width:100%;
-}
-.btn:disabled{opacity:.5;
-  cursor:not-allowed;
-}
 /* ---------- Tabs ---------- */
-.tabs
-{
-  display:flex;
-  gap:.6rem;
-  margin:1.2rem 0;
-}
-.tab
-{
-  flex:1;
-  border:none;
-  background:var(--teal);
-  color:#fff;
-  padding:.5rem 0;
-  border-radius:3px;
-  cursor:pointer;
-}
-
-.tab.active
-{
-  background:var(--teal-dark);
-}
+.tabs{display:flex;gap:.6rem;margin:1.2rem 0;}
+.tab{flex:1;border:none;background:var(--teal);color:#fff;padding:.5rem 0;border-radius:3px;cursor:pointer;}
+.tab.active{background:var(--teal-dark);}
 
 /* ---------- Todo List ---------- */
-.list
-{
-  list-style:none;
-  margin:0;
-  padding:0;
-  border:1px solid var(--border);
-  border-radius:4px;
-  background:#fff;
-  max-height:380px;
-  overflow-y:auto;
-}
+.list{list-style:none;margin:0;padding:0;border:1px solid var(--border);border-radius:4px;background:#fff;max-height:380px;overflow-y:auto;}
+.item{display:flex;align-items:center;padding:.6rem .4rem;border-bottom:1px solid var(--border);}
+.item:last-child{border-bottom:none;}
+.item .text{flex:1;margin-left:.6rem;}
+.item.done .text{text-decoration:line-through;color:#888;}
+.item .chk{width:1rem;height:1rem;cursor:pointer;margin-right:.3rem;}
 
-.item
-{
-  display:flex;
-  align-items:center;
-  padding:.6rem .4rem;
-  border-bottom:1px solid var(--border);
-}
-.item:last-child{border-bottom:none;
-}
-.item .text
-{
-  flex:1;
-  margin-left:.6rem;
-}
-.item.done .text
-{
-  text-decoration:line-through;
-  color:#888;
-}
-.item .chk
-{
-  width:1rem;
-  height:1rem;
-  cursor:pointer;
-  margin-right:.3rem;
-}
 /* ---------- Mini icon buttons ---------- */
-.icon-btn
-{
-  width:26px;              
+.icon-btn{
+  width:26px;               /* حجم أوضح */
   height:26px;
   display:flex;
   align-items:center;
@@ -149,88 +53,25 @@ h2{text-align:center;
   border-radius:3px;
   background:#fff;
   color:#444;
-  font-size:1rem;          
+  font-size:1rem;           /* إيموجي واضحة */
   cursor:pointer;
   padding:0;
   margin-right:.4rem;
   transition:background .2s,color .2s;
 }
-.icon-btn.edit::before
-{
-  content:'✏️';
-} 
-.icon-btn.del::before 
-{
-  content:'🗑️';
-} 
-.icon-btn.edit:hover
-{
-  background:var(--teal);
-  color:#fff;
-}
-.icon-btn.del:hover 
-{
-  background:var(--danger);
-  color:#fff;
-} 
+.icon-btn.edit::before{content:'✏️';} /* قلم واضح */
+.icon-btn.del::before {content:'🗑️';} /* سلّة واضحة */
+.icon-btn.edit:hover{background:var(--teal);color:#fff;}
+.icon-btn.del:hover {background:var(--danger);color:#fff;}
 /* ---------- Bottom action buttons ---------- */
-.actions
-{
-  display:flex;gap:.8rem;margin-top:1rem;
-}
-.actions .btn
-{
-  flex:1;border-radius:3px;
-}
-.btn.danger:disabled
-{
-  background:#f6a0a0;color:#fff;opacity:1;
-}
+.actions{display:flex;gap:.8rem;margin-top:1rem;}
+.actions .btn{flex:1;border-radius:3px;}
+.btn.danger:disabled{background:#f6a0a0;color:#fff;opacity:1;}
 
 /* ---------- Overlay & Modals ---------- */
-.modal-overlay
-{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.4);
-  display:none;
-  z-index:100;
-}
-.modal-box
-{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:#fff;
-  border-radius:8px;
-  padding:1.2rem 1.5rem;
-  min-width:260px;
-  display:none;
-  z-index:101;
-  text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,.3);
-}
-.modal-box h3
-{
-  margin-top:0;
-  margin-bottom:1rem;
-  font-size:1.3rem;
-  color:var(--teal-dark);
-}
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);display:none;z-index:100;}
+.modal-box{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:8px;padding:1.2rem 1.5rem;min-width:260px;display:none;z-index:101;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.3);}
+.modal-box h3{margin-top:0;margin-bottom:1rem;font-size:1.3rem;color:var(--teal-dark);}
 .modal-box p{margin:0 0 1.2rem;}
-.modal-box input
-{
-  width:100%;
-  padding:.6rem;
-  border:1px solid var(--teal);
-  border-radius:4px;
-}
-.btn-area{display:flex;
-  justify-content:center;
-  gap:1rem;
-  margin-top:1.3rem;
-}
+.modal-box input{width:100%;padding:.6rem;border:1px solid var(--teal);border-radius:4px;}
+.btn-area{display:flex;justify-content:center;gap:1rem;margin-top:1.3rem;}
