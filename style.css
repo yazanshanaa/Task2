@@ -155,3 +155,21 @@ h2{text-align:center;
   margin-right:.4rem;
   transition:background .2s,color .2s;
 }
+.icon-btn.edit::before
+{
+  content:'✏️';
+} 
+.icon-btn.del::before 
+{
+  content:'🗑️';
+} 
+.icon-btn.edit:hover
+{
+  background:var(--teal);
+  color:#fff;
+}
+.icon-btn.del:hover 
+{
+  background:var(--danger);
+  color:#fff;
+}
