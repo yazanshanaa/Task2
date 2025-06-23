@@ -137,4 +137,21 @@ h2{text-align:center;
   cursor:pointer;
   margin-right:.3rem;
 }
-
+/* ---------- Mini icon buttons ---------- */
+.icon-btn
+{
+  width:26px;              
+  height:26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--border);
+  border-radius:3px;
+  background:#fff;
+  color:#444;
+  font-size:1rem;          
+  cursor:pointer;
+  padding:0;
+  margin-right:.4rem;
+  transition:background .2s,color .2s;
+}
