@@ -29,9 +29,7 @@ const load  = () => {
   tasks = saved ? JSON.parse(saved) : [
    
 
-  ];
-  if (!saved) save();
-];
+
   if (!saved) save();
 };
 const validate = txt => txt.trim() && txt.trim().length >= 5 && !/^\d/.test(txt.trim());
