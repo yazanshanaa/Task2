@@ -127,3 +127,31 @@ const openConfirm = id =>
   confirmBox.style.display = 'block';
   showOverlay();
 };
+
+saveRenameBtn.onclick = () =>
+   {
+  if (!validate(renameField.value)) return alert('Invalid name');
+  tasks = tasks.map(t=>t.id===currentId?{...t,text:renameField.value.trim()}:t);
+  save();
+   render(); 
+   hideOverlay();
+};
+cancelRename.onclick = hideOverlay;
+confirmOk.onclick = () => 
+  {
+  if (currentId === 'doneGroup') 
+    {
+    deleteDone();
+  } 
+  else if (currentId === 'allGroup') 
+    {
+    tasks = []; save(); render();
+  } 
+  else
+   {
+    deleteTask(currentId);
+  }
+  hideOverlay();
+};
+confirmCancel.onclick = hideOverlay;
+overlay.onclick = hideOverlay;
