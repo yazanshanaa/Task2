@@ -74,4 +74,56 @@ const render = () => {
 
   delDoneBtn.disabled = !tasks.some(t => t.done);
   delAllBtn.disabled  = tasks.length === 0;
+}; 
+const addTask = () => {
+  if (!validate(input.value)) return alert('Task must be at least 5 characters and not start with a number.');
+  tasks.push({id:uuid(),text:input.value.trim(),done:false});
+  input.value = '';
+  save(); render();
+};
+const toggleTask = id => 
+  { 
+    tasks = tasks.map(t=>t.id===id?
+      {...t,done:!t.done}:t);
+       save(); 
+       render();
+       };
+const deleteTask = id =>
+   { 
+    tasks = tasks.filter(t=>t.id!==id);
+     save();
+      render();
+     }
+     ;
+const deleteDone = () => { tasks = tasks.filter(t=>!t.done);
+   save(); 
+   render();
+   }
+   ;
+
+const showOverlay = () => overlay.style.display = 'block';
+const hideOverlay = () => 
+  {
+  overlay.style.display = 'none';
+  renameBox.style.display = 'none';
+  confirmBox.style.display = 'none';
+};
+
+const openRename = id => 
+  {
+  currentId = id;
+  renameField.value = tasks.find(t=>t.id===id).text;
+  renameBox.style.display = 'block';
+  showOverlay();
+  renameField.focus();
+};
+const openConfirm = id => 
+  {
+  currentId = id;
+  confirmText.textContent =
+    id === 'doneGroup' ? 'Delete all done tasks?'
+    : id === 'allGroup' ? 'Delete ALL tasks?'
+    : 'Are you sure you want to delete this task?';
+  confirmBox.style.display = 'block';
+  showOverlay();
 };
