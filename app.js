@@ -154,4 +154,19 @@ confirmOk.onclick = () =>
   hideOverlay();
 };
 confirmCancel.onclick = hideOverlay;
-overlay.onclick = hideOverlay;
+overlay.onclick = hideOverlay; 
+
+
+addBtn.onclick       = addTask;
+input.onkeyup        = e => { if (e.key === 'Enter') addTask(); };
+tabs.forEach(btn => btn.onclick = () => 
+  {
+  tabs.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.filter;
+  render();
+});
+delDoneBtn.onclick = () => openConfirm('doneGroup');
+delAllBtn.onclick  = () => openConfirm('allGroup');
+
+load(); render();
