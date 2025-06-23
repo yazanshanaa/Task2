@@ -31,4 +31,49 @@ const load  = () => {
 
   ];
   if (!saved) save();
-  
+];
+  if (!saved) save();
+};
+const validate = txt => txt.trim() && txt.trim().length >= 5 && !/^\d/.test(txt.trim());
+
+const render = () => {
+  listElm.innerHTML = '';
+
+  const show = tasks.filter(t =>
+    currentFilter === 'all'  ? true :
+    currentFilter === 'done' ? t.done : !t.done
+  );
+
+  show.forEach(t => {
+    const li = document.createElement('li');
+    li.className = 'item' + (t.done ? ' done' : '');
+
+    const chk = document.createElement('input');
+    chk.type = 'checkbox';
+    chk.className = 'chk';
+    chk.checked = t.done;
+    chk.onchange = () => toggleTask(t.id);
+
+    const edit = document.createElement('button');
+    edit.className = 'icon-btn edit';
+    edit.title = 'Edit';
+    edit.onclick = () => openRename(t.id);
+
+    const del = document.createElement('button');
+    del.className = 'icon-btn del';
+    del.title = 'Delete';
+    del.onclick = () => openConfirm(t.id);
+
+    const span = document.createElement('p');
+    span.className = 'text';
+    span.textContent = t.text;
+
+   
+    listElm.append(li); 
+    + li.append(span, chk, edit, del);
+  }
+);
+
+  delDoneBtn.disabled = !tasks.some(t => t.done);
+  delAllBtn.disabled  = tasks.length === 0;
+};
